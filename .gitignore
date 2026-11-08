@@ -1,0 +1,18 @@
+# Real business details (phone, WhatsApp, Instagram, address) — local only.
+# GitHub gets config.example.js; Netlify builds config.js from environment variables.
+config.js
+
+# Netlify local files and secrets — never commit these
+.netlify/
+.env
+.env.*
+
+# Dependencies (none needed, but just in case)
+node_modules/
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.log

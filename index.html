@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>TORQ – RC Racing, Off-Road &amp; Construction Arena</title>
+  <meta name="description" content="TORQ is an RC gaming arena. Race RC cars, take on the off-road track or operate mini construction vehicles. Book on WhatsApp." />
+  <meta name="theme-color" content="#100F0D" />
+  <meta name="color-scheme" content="dark" />
+  <!-- When the site has a domain, add: <link rel="canonical" href="https://YOUR-DOMAIN/" />
+       and change og:image below to the full URL (https://YOUR-DOMAIN/assets/og-image.jpg) -->
+  <script>
+    (function (d) {
+      var cls = " js", lite = false;
+      try { var c = navigator.connection; lite = !!(c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ""))); } catch (e) {}
+      if (!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) cls += " motion";
+      if (lite) cls += " lite"; // Data Saver / 2G: skip the loading screen
+      d.className += cls;
+      // worn-print texture is only applied once it has really loaded (a missing mask would hide text)
+      var g = new Image();
+      g.onload = function () { d.className += " grunge"; };
+      g.src = "assets/tex/grunge.png";
+      // safety net: if the scripts are slow or blocked, never leave the page hidden
+      setTimeout(function () {
+        if (!window.TORQ_READY) d.className = d.className.replace(/\bmotion\b/g, "") + " failsafe";
+      }, 4000);
+    })(document.documentElement);
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg" />
+  <link rel="apple-touch-icon" href="assets/logo-mark.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TORQ" />
+  <meta property="og:title" content="TORQ – Ride. Race. Explore." />
+  <meta property="og:description" content="RC racing, off-road challenges and construction adventures. Book your ride on WhatsApp." />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- fonts load in the background: a slow or blocked font server never blanks the page -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Permanent+Marker&family=Saira+Stencil+One&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Permanent+Marker&family=Saira+Stencil+One&display=swap" /></noscript>
+  <link rel="preload" as="image" href="assets/tex/concrete.jpg" />
+  <link rel="preload" as="image" href="assets/tex/grunge.png" />
+  <link rel="stylesheet" href="style.css?v=9" />
+  <script src="config.js?v=9"></script>
+  <script src="site.js?v=9" defer></script>
+</head>
+<body>
+  <!-- Icons + rough-edge filters -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="3" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="rough-sm" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency=".08" numOctaves="2" seed="8" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M3 7h18M3 12h13M3 17h16"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============ Loader: RC buggy drives the progress bar ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="ld-half ld-top" data-torn="bottom"></div>
+    <div class="ld-half ld-bottom" data-torn="top"></div>
+    <div class="ld-core">
+      <img class="ld-logo" src="assets/logo-light.svg" alt="" width="180" height="69" />
+      <p class="ld-pct"><b id="ldPct">0</b><span>%</span></p>
+      <div class="ld-track">
+        <div class="ld-trail"></div>
+        <div class="ld-car" id="ldCar"><div data-vehicle="buggy"></div><div class="ld-dust"></div></div>
+      </div>
+      <p class="ld-tip" id="ldTip">Charging the batteries…</p>
+    </div>
+    <p class="ld-skip">Tap to skip</p>
+  </div>
+
+  <!-- ============ Header ============ -->
+  <header class="header" id="top">
+    <div class="header-inner container">
+      <a class="brand" href="#top" aria-label="TORQ home">
+        <img src="assets/logo-light.svg" alt="TORQ" width="112" height="43" />
+      </a>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#zone-race"><span class="nav-i">01</span>Race</a>
+        <a href="#zone-offroad"><span class="nav-i">02</span>Off-Road</a>
+        <a href="#zone-construction"><span class="nav-i">03</span>Construction</a>
+        <a href="#book"><span class="nav-i">04</span>How to Book</a>
+        <a href="#info"><span class="nav-i">05</span>Prices</a>
+        <a href="#visit"><span class="nav-i">06</span>Visit</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-hazard btn-sm" type="button" data-book="last">Book</button>
+        <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Open menu">
+          <svg width="26" height="26"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="progress" aria-hidden="true"><span class="p-trail"></span><span class="p-car"></span></div>
+  </header>
+
+  <main id="main">
+    <!-- ============ 1. Hero ============ -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <svg class="hero-tracks" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <mask id="trackMask"><path class="tm" d="M-60 640 C 260 600, 420 380, 760 420 S 1180 760, 1500 520" /><path class="tm tm2" d="M-60 690 C 260 650, 420 430, 760 470 S 1180 810, 1500 570" /></mask>
+        </defs>
+        <g mask="url(#trackMask)">
+          <path class="tread" d="M-60 640 C 260 600, 420 380, 760 420 S 1180 760, 1500 520" />
+          <path class="tread" d="M-60 690 C 260 650, 420 430, 760 470 S 1180 810, 1500 570" />
+        </g>
+      </svg>
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <p class="stencil-tag">RC Gaming Arena<span data-city hidden> <span>//</span> <b></b></span></p>
+          <h1 id="hero-title" class="hero-title">
+            <span class="w w1 rough">Ride.</span>
+            <span class="w w2"><span class="rough">Race.</span></span>
+            <span class="w w3 rough">Explore.</span>
+          </h1>
+          <p class="hero-sub marker">Your next racing experience starts here.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-hazard btn-lg" href="#experiences">Explore Our Tracks
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-down"/></svg></a>
+            <button class="btn btn-paper btn-lg" type="button" data-book="last">
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>Check Availability</button>
+          </div>
+        </div>
+
+        <div class="hero-wall" aria-hidden="true">
+          <div class="splats" data-splats="5" data-place="wall"></div>
+          <figure class="snap hs1"><picture><source srcset="assets/photos/racing-hero-640.webp 640w, assets/photos/racing-hero-1000.webp 1000w, assets/photos/racing-hero.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/racing-hero.jpg" width="1470" height="1960" alt="" fetchpriority="high" /></picture><figcaption>drift king</figcaption><i class="tape"></i></figure>
+          <figure class="snap hs2"><picture><source srcset="assets/photos/offroad-monster-640.webp 640w, assets/photos/offroad-monster-1000.webp 1000w, assets/photos/offroad-monster.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/offroad-monster.jpg" width="1470" height="1960" alt="" /></picture><figcaption>get dirty</figcaption><i class="tape"></i></figure>
+          <figure class="snap hs3"><picture><source srcset="assets/photos/construction-site-640.webp 640w, assets/photos/construction-site-1000.webp 1000w, assets/photos/construction-site.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/construction-site.jpg" width="1472" height="1962" alt="" /></picture><figcaption>dig it</figcaption><i class="tape"></i></figure>
+        </div>
+      </div>
+
+      <div class="hero-car" aria-hidden="true"><div data-vehicle="buggy"></div><div class="puff"></div></div>
+    </section>
+
+    <!-- Hazard tapes -->
+    <div class="tapes" aria-hidden="true">
+      <div class="htape htape-a"><div class="htape-track"><span>RC Racing ▲ Off-Road ▲ Construction ▲ Take Control ▲ RC Racing ▲ Off-Road ▲ Construction ▲ Take Control ▲</span><span>RC Racing ▲ Off-Road ▲ Construction ▲ Take Control ▲ RC Racing ▲ Off-Road ▲ Construction ▲ Take Control ▲</span></div></div>
+      <div class="htape htape-b"><div class="htape-track"><span>Caution ▲ Fun Zone ▲ Take Control ▲ Caution ▲ Fun Zone ▲ Take Control ▲</span><span>Caution ▲ Fun Zone ▲ Take Control ▲ Caution ▲ Fun Zone ▲ Take Control ▲</span></div></div>
+    </div>
+
+    <!-- Intro on torn paper -->
+    <section class="intro container" aria-label="About TORQ">
+      <div class="paper intro-paper reveal" data-torn="all">
+        <i class="tape tape-l"></i><i class="tape tape-r"></i>
+        <p class="intro-text">Get behind the controls and enjoy <mark>RC racing</mark>, <mark>off-road challenges</mark> and <mark>construction adventures</mark>. Bring your friends and family and experience the fun at TORQ.</p>
+        <p class="intro-sign marker">— see you at the track!</p>
+      </div>
+    </section>
+
+    <!-- ============ 2. Choose Your Experience ============ -->
+    <section class="section choose" id="experiences" aria-labelledby="exp-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="stencil-tag">Pick your poison</p>
+          <h2 id="exp-title" class="rough">Choose Your Experience</h2>
+          <p>Discover three different experiences, each with its own challenges and fun.</p>
+        </header>
+
+        <div class="tickets">
+          <article class="ticket t-race reveal" style="--i:0" data-track="racing">
+            <picture class="t-img"><source srcset="assets/photos/card-racing-640.webp 640w, assets/photos/card-racing-1000.webp 1000w, assets/photos/card-racing.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/card-racing.jpg" width="1472" height="2206" loading="lazy" decoding="async" alt="A white RC race car with glowing headlights speeding around a track, kicking up dust" /></picture>
+            <span class="t-no" aria-hidden="true">01</span>
+            <div class="t-body">
+              <span class="t-tag">Ready, Set, Race!</span>
+              <h3>RC Racing Track</h3>
+              <div class="t-actions">
+                <button class="t-btn" type="button" data-book="racing">Book Now <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                <a class="t-more" href="#zone-race" aria-label="See the RC Racing Track zone"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg></a>
+              </div>
+            </div>
+          </article>
+          <article class="ticket t-off reveal" style="--i:1" data-track="offroad">
+            <picture class="t-img"><source srcset="assets/photos/card-offroad-640.webp 640w, assets/photos/card-offroad-1000.webp 1000w, assets/photos/card-offroad.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/card-offroad.jpg" width="1472" height="1472" loading="lazy" decoding="async" alt="A yellow RC off-road 4x4 with roof lights crawling over big rocks" /></picture>
+            <span class="t-no" aria-hidden="true">02</span>
+            <div class="t-body">
+              <span class="t-tag">Take on the Challenge!</span>
+              <h3>RC Off-Road Track</h3>
+              <div class="t-actions">
+                <button class="t-btn" type="button" data-book="offroad">Book Now <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                <a class="t-more" href="#zone-offroad" aria-label="See the RC Off-Road Track zone"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg></a>
+              </div>
+            </div>
+          </article>
+          <article class="ticket t-con reveal" style="--i:2" data-track="construction">
+            <picture class="t-img"><source srcset="assets/photos/card-construction-640.webp 640w, assets/photos/card-construction-1000.webp 1000w, assets/photos/card-construction.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/card-construction.jpg" width="1472" height="2208" loading="lazy" decoding="async" alt="Yellow RC dump trucks and a loader working on a dirt site between cones and gravel piles" /></picture>
+            <span class="t-no" aria-hidden="true">03</span>
+            <div class="t-body">
+              <span class="t-tag">Build. Move. Operate.</span>
+              <h3>RC Construction Zone</h3>
+              <div class="t-actions">
+                <button class="t-btn" type="button" data-book="construction">Book Now <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                <a class="t-more" href="#zone-construction" aria-label="See the RC Construction Zone"><svg width="18" height="18" aria-hidden="true"><use href="#i-down"/></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ZONE 01 — RACE ============ -->
+    <section class="zone zone-race" id="zone-race" data-zone="racing" data-torn="top" aria-labelledby="zr-title">
+      <div class="zone-fx" aria-hidden="true">
+        <div class="checker"></div>
+        <div class="kerb"></div>
+        <svg class="skids" viewBox="0 0 1440 800" preserveAspectRatio="none">
+          <path d="M-40 560 C 300 540, 520 600, 760 520 S 1180 380, 1480 420" />
+          <path d="M-40 600 C 300 580, 520 640, 760 560 S 1180 420, 1480 460" />
+        </svg>
+        <div class="speedlines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="flyby"><div data-vehicle="buggy" class="fly-car"></div></div>
+      </div>
+      <div class="container zone-inner">
+        <div class="zone-head">
+          <p class="zone-no">Zone 01 <span>/ Race</span></p>
+          <div class="startlights" aria-hidden="true"><i></i><i></i><i></i><b>GO!</b></div>
+          <h2 class="zone-title rough" id="zr-title">RC Racing <span>Track</span></h2>
+          <p class="zone-tag marker">Ready, Set, Race!</p>
+        </div>
+        <div class="zone-body">
+          <div class="zone-copy">
+            <p class="zone-desc">Take control of your RC car and race around the track. Test your driving skills, beat your best time and challenge your friends.</p>
+            <dl class="facts">
+              <div><dt>Duration</dt><dd data-field="duration" data-key="racing"></dd></div>
+              <div><dt>Price</dt><dd data-field="price" data-key="racing"></dd></div>
+            </dl>
+            <button class="btn btn-hazard btn-lg" type="button" data-book="racing">
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>Book the Race Track</button>
+          </div>
+          <div class="zone-photos">
+            <figure class="snap zp1"><picture><source srcset="assets/photos/racing-drift-640.webp 640w, assets/photos/racing-drift-1000.webp 1000w, assets/photos/racing-drift.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/racing-drift.jpg" width="1470" height="980" loading="lazy" decoding="async" alt="Two RC drift cars racing side by side on a wet indoor track" /></picture><figcaption>side by side!</figcaption><i class="tape"></i></figure>
+            <figure class="snap zp2"><picture><source srcset="assets/photos/racing-hero-640.webp 640w, assets/photos/racing-hero-1000.webp 1000w, assets/photos/racing-hero.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/racing-hero.jpg" width="1470" height="1960" loading="lazy" decoding="async" alt="A red and black RC drift car sliding around a corner, tyre smoke behind it" /></picture><figcaption>full lock</figcaption><i class="tape"></i></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ZONE 02 — OFF-ROAD ============ -->
+    <section class="zone zone-off" id="zone-offroad" data-zone="offroad" data-torn="top" aria-labelledby="zo-title">
+      <div class="zone-fx" aria-hidden="true">
+        <div class="splats" data-splats="7" data-color="mud"></div>
+        <svg class="terrain" viewBox="0 0 1440 220" preserveAspectRatio="none"><path id="terrainPath" d="" /></svg>
+        <div class="truck-rig"><div data-vehicle="truck" class="truck"></div></div>
+        <div class="dust-layer"></div>
+      </div>
+      <div class="container zone-inner">
+        <div class="zone-head">
+          <p class="zone-no">Zone 02 <span>/ Off-Road</span></p>
+          <h2 class="zone-title rough" id="zo-title">RC Off-Road <span>Track</span></h2>
+          <p class="zone-tag marker">Take on the Challenge!</p>
+        </div>
+        <div class="zone-body">
+          <div class="zone-copy">
+            <p class="zone-desc">Experience an off-road adventure with challenging paths, obstacles and rough terrain. Can you make it to the finish?</p>
+            <dl class="facts">
+              <div><dt>Duration</dt><dd data-field="duration" data-key="offroad"></dd></div>
+              <div><dt>Price</dt><dd data-field="price" data-key="offroad"></dd></div>
+            </dl>
+            <button class="btn btn-hazard btn-lg" type="button" data-book="offroad">
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>Book the Off-Road Track</button>
+          </div>
+          <div class="zone-photos">
+            <figure class="snap zp1"><picture><source srcset="assets/photos/offroad-monster-640.webp 640w, assets/photos/offroad-monster-1000.webp 1000w, assets/photos/offroad-monster.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/offroad-monster.jpg" width="1470" height="1960" loading="lazy" decoding="async" alt="A grey RC monster truck kicking up red dust on rocky ground" /></picture><figcaption>send it!</figcaption><i class="tape"></i></figure>
+            <figure class="snap zp2"><picture><source srcset="assets/photos/offroad-crawler-640.webp 640w, assets/photos/offroad-crawler-1000.webp 1000w, assets/photos/offroad-crawler.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/offroad-crawler.jpg" width="1476" height="1964" loading="lazy" decoding="async" alt="An RC off-road crawler climbing a dirt slope past cones, rocks and wooden fencing" /></picture><figcaption>slow &amp; steady</figcaption><i class="tape"></i></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ZONE 03 — CONSTRUCTION ============ -->
+    <section class="zone zone-con" id="zone-construction" data-zone="construction" data-torn="top" aria-labelledby="zc-title">
+      <div class="zone-fx" aria-hidden="true">
+        <div class="hazard-edge hz-top"></div>
+        <div class="ctape ctape-a"><div class="ctape-track"><span>Caution ▲ RC Construction Zone ▲ Hard Hats On ▲ Caution ▲ RC Construction Zone ▲ Hard Hats On ▲</span><span>Caution ▲ RC Construction Zone ▲ Hard Hats On ▲ Caution ▲ RC Construction Zone ▲ Hard Hats On ▲</span></div></div>
+        <div class="ctape ctape-b"><div class="ctape-track"><span>Do Not Cross ▲ Diggers at Work ▲ Do Not Cross ▲ Diggers at Work ▲ Do Not Cross ▲ Diggers at Work ▲</span><span>Do Not Cross ▲ Diggers at Work ▲ Do Not Cross ▲ Diggers at Work ▲ Do Not Cross ▲ Diggers at Work ▲</span></div></div>
+        <div class="sandpile"></div>
+        <div class="digger-rig"><div data-vehicle="digger" class="digger"></div></div>
+        <div class="sand-layer"></div>
+        <div class="hazard-edge hz-bottom"></div>
+      </div>
+      <div class="container zone-inner">
+        <div class="zone-head">
+          <p class="zone-no">Zone 03 <span>/ Construction</span></p>
+          <div class="crane" aria-hidden="true"><i class="rope"></i><i class="hook"></i></div>
+          <h2 class="zone-title rough" id="zc-title">RC Construction <span>Zone</span></h2>
+          <p class="zone-tag marker">Build. Move. Operate.</p>
+        </div>
+        <div class="zone-body">
+          <div class="zone-copy">
+            <p class="zone-desc">Step into a mini construction world. Operate RC construction vehicles like excavators, bulldozers and trucks, and take on your own construction challenges.</p>
+            <dl class="facts">
+              <div><dt>Duration</dt><dd data-field="duration" data-key="construction"></dd></div>
+              <div><dt>Price</dt><dd data-field="price" data-key="construction"></dd></div>
+            </dl>
+            <button class="btn btn-hazard btn-lg" type="button" data-book="construction">
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>Book the Construction Zone</button>
+          </div>
+          <div class="zone-photos">
+            <figure class="snap zp1"><picture><source srcset="assets/photos/construction-site-640.webp 640w, assets/photos/construction-site-1000.webp 1000w, assets/photos/construction-site.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/construction-site.jpg" width="1472" height="1962" loading="lazy" decoding="async" alt="Players operating RC excavators, a loader and a dump truck in a large indoor dirt construction site" /></picture><figcaption>the job site</figcaption><i class="clip"></i></figure>
+            <figure class="snap zp2"><picture><source srcset="assets/photos/construction-sand-640.webp 640w, assets/photos/construction-sand-1000.webp 1000w, assets/photos/construction-sand.webp 1472w" sizes="(min-width: 1000px) 460px, (min-width: 600px) 50vw, 92vw" type="image/webp" /><img src="assets/photos/construction-sand.jpg" width="1472" height="1962" loading="lazy" decoding="async" alt="RC excavators and a dump truck digging in a sand pit, with a remote controller on the wooden ledge" /></picture><figcaption>dig &amp; dump</figcaption><i class="clip"></i></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. Availability + How to Book ============ -->
+    <section class="section book" id="book" data-torn="top" aria-labelledby="book-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="stencil-tag">The route</p>
+          <h2 id="book-title" class="rough">Check Ride Availability</h2>
+          <p>Planning a visit? Get in touch with us to check available rides and timings before you arrive.</p>
+        </header>
+
+        <h3 class="book-sub marker reveal">How to Book</h3>
+        <div class="route" id="route">
+          <div class="road" aria-hidden="true"><div class="road-done"></div><div class="road-car"><div data-vehicle="buggy"></div></div></div>
+          <ol class="steps">
+            <li class="step"><span class="flag" aria-hidden="true"></span><span class="step-num">1</span><p>Choose your preferred track.</p></li>
+            <li class="step"><span class="flag" aria-hidden="true"></span><span class="step-num">2</span><p>Contact us to check availability.</p></li>
+            <li class="step"><span class="flag" aria-hidden="true"></span><span class="step-num">3</span><p>Confirm your preferred time.</p></li>
+            <li class="step"><span class="flag" aria-hidden="true"></span><span class="step-num">4</span><p>Visit TORQ and enjoy your ride!</p></li>
+          </ol>
+        </div>
+        <div class="book-cta reveal">
+          <button class="btn btn-hazard btn-xl" type="button" data-book="last">
+            <svg width="24" height="24" aria-hidden="true"><use href="#i-wa"/></svg>Book Your Ride on WhatsApp</button>
+          <p class="note">Booking confirmation is subject to availability.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. Track Information ============ -->
+    <section class="section info" id="info" aria-labelledby="info-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="stencil-tag">Rate card</p>
+          <h2 id="info-title" class="rough">Track Information</h2>
+        </header>
+
+        <div class="paper ratecard reveal" data-torn="all">
+          <i class="tape tape-l"></i><i class="tape tape-r"></i>
+          <p class="rc-head"><span>TORQ // Rate Card</span><span>No. 0001</span></p>
+          <table class="info-table">
+            <thead>
+              <tr><th scope="col">Track</th><th scope="col">Experience</th><th scope="col">Duration</th><th scope="col">Price</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-label="Track"><span class="dot dot-1" aria-hidden="true"></span>RC Racing Track</th>
+                <td data-label="Experience">RC car racing</td>
+                <td data-label="Duration" data-field="duration" data-key="racing"></td>
+                <td data-label="Price" data-field="price" data-key="racing"></td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Track"><span class="dot dot-2" aria-hidden="true"></span>RC Off-Road Track</th>
+                <td data-label="Experience">Off-road driving</td>
+                <td data-label="Duration" data-field="duration" data-key="offroad"></td>
+                <td data-label="Price" data-field="price" data-key="offroad"></td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Track"><span class="dot dot-3" aria-hidden="true"></span>RC Construction Zone</th>
+                <td data-label="Experience">Construction vehicle operation</td>
+                <td data-label="Duration" data-field="duration" data-key="construction"></td>
+                <td data-label="Price" data-field="price" data-key="construction"></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="table-note marker">Please contact us for current pricing and ride availability.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. Plan Your Visit ============ -->
+    <section class="section visit" id="visit" data-torn="top" aria-labelledby="visit-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="stencil-tag">Pit stop</p>
+          <h2 id="visit-title" class="rough">Plan Your Visit</h2>
+          <p>Whether you’re visiting with friends, family or on your own, there’s a ride waiting for you.</p>
+        </header>
+
+        <div class="visit-grid">
+          <div class="visit-card reveal">
+            <ul class="visit-list">
+              <li>
+                <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-pin"/></svg></span>
+                <div><span class="label">Location</span><span class="value" data-bind="address"></span></div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-clock"/></svg></span>
+                <div><span class="label">Opening Hours</span><span class="value" data-bind="hours"></span></div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-phone"/></svg></span>
+                <div><span class="label">Contact Number</span><a class="value link" data-bind="phone" data-tel href="#"></a></div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-wa"/></svg></span>
+                <div><span class="label">WhatsApp</span><a class="value link" data-bind="whatsappDisplay" data-wa="general" href="#" target="_blank" rel="noopener"></a></div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-ig"/></svg></span>
+                <div><span class="label">Instagram</span><a class="value link" data-bind="instagramHandle" data-instagram href="#" target="_blank" rel="noopener"></a></div>
+              </li>
+            </ul>
+            <a class="btn btn-hazard btn-lg btn-block" data-directions href="#" target="_blank" rel="noopener">
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-pin"/></svg>Get Directions</a>
+          </div>
+
+          <div class="map-card reveal" style="--i:1">
+            <i class="tape tape-l"></i><i class="pin" aria-hidden="true"></i>
+            <h3 class="map-title marker">Find Us on the Map</h3>
+            <div class="map-frame" id="mapFrame" data-loading>
+              <noscript><p class="map-fallback">Use the Get Directions button to find us on Google Maps.</p></noscript>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. Have Questions ============ -->
+    <section class="section" id="contact" aria-labelledby="q-title">
+      <div class="container">
+        <div class="questions reveal">
+          <div class="questions-head">
+            <h2 id="q-title" class="rough">Have Questions?</h2>
+            <p>Want to know more about our tracks, prices or available timings?</p>
+            <p class="strong marker">We’re happy to help.</p>
+          </div>
+          <div class="q-actions">
+            <a class="q-tile" data-tel href="#">
+              <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-phone"/></svg></span>
+              <span><span class="label">Call Us</span><span class="value" data-bind="phone"></span></span>
+            </a>
+            <a class="q-tile" data-wa="general" href="#" target="_blank" rel="noopener">
+              <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-wa"/></svg></span>
+              <span><span class="label">WhatsApp Us</span><span class="value" data-bind="whatsappDisplay"></span></span>
+            </a>
+            <a class="q-tile" data-instagram href="#" target="_blank" rel="noopener">
+              <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-ig"/></svg></span>
+              <span><span class="label">Follow Us on Instagram</span><span class="value" data-bind="instagramHandle"></span></span>
+            </a>
+            <a class="q-tile" data-directions href="#" target="_blank" rel="noopener">
+              <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-pin"/></svg></span>
+              <span><span class="label">Visit Us</span><span class="value" data-bind="address"></span></span>
+            </a>
+          </div>
+          <a class="btn btn-hazard btn-lg q-cta" data-wa="general" href="#" target="_blank" rel="noopener">Contact Us
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 7. Footer ============ -->
+  <footer class="footer" data-torn="top">
+    <svg class="foot-tracks" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+      <path class="tread" d="M-40 250 C 400 210, 700 60, 1480 90" /><path class="tread" d="M-40 290 C 400 250, 700 100, 1480 130" />
+    </svg>
+    <div class="footer-giant rough" aria-hidden="true">TORQ</div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-light.svg" alt="TORQ" width="150" height="57" loading="lazy" />
+        <p class="footer-tag marker">Elevate Every Game.</p>
+        <p class="footer-line">Come, take control and enjoy the ride.</p>
+      </div>
+      <a class="ig" data-instagram href="#" target="_blank" rel="noopener" aria-label="TORQ on Instagram (opens in a new tab)">
+        <svg width="24" height="24" aria-hidden="true"><use href="#i-ig"/></svg>
+      </a>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 TORQ. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="wa-float" data-wa="last" href="#" target="_blank" rel="noopener" aria-label="Chat with TORQ on WhatsApp">
+    <svg width="28" height="28" aria-hidden="true"><use href="#i-wa"/></svg>
+  </a>
+
+  <!-- Booking form → WhatsApp -->
+  <dialog class="modal" id="bookModal" aria-labelledby="bookTitle">
+    <button class="modal-close" type="button" aria-label="Close booking form">
+      <svg width="22" height="22" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+
+    <form class="book-form" id="bookForm" novalidate>
+      <header class="form-head">
+        <p class="stencil-tag">Pit pass</p>
+        <h3 id="bookTitle" class="rough">Book Your Ride</h3>
+        <p class="note">Booking confirmation is subject to availability.</p>
+      </header>
+
+      <div class="field">
+        <label for="bfName">Name</label>
+        <input id="bfName" name="name" type="text" autocomplete="name" required aria-describedby="bfNameErr" />
+        <p class="field-error" id="bfNameErr" hidden>Please enter your name.</p>
+      </div>
+
+      <div class="field">
+        <label for="bfPhone">Phone</label>
+        <input id="bfPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="14"
+               placeholder="10-digit mobile number" required aria-describedby="bfPhoneErr" />
+        <p class="field-error" id="bfPhoneErr" hidden>Please enter a valid 10-digit phone number.</p>
+      </div>
+
+      <fieldset class="field">
+        <legend>Track</legend>
+        <div class="track-pick">
+          <label><input type="radio" name="track" value="racing" /><span><i class="dot dot-1" aria-hidden="true"></i>RC Racing Track</span></label>
+          <label><input type="radio" name="track" value="offroad" /><span><i class="dot dot-2" aria-hidden="true"></i>RC Off-Road Track</span></label>
+          <label><input type="radio" name="track" value="construction" /><span><i class="dot dot-3" aria-hidden="true"></i>RC Construction Zone</span></label>
+        </div>
+        <p class="field-error" id="bfTrackErr" hidden>Please choose a track.</p>
+      </fieldset>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="bfDate">Date</label>
+          <input id="bfDate" name="date" type="date" required aria-describedby="bfDateErr" />
+          <p class="field-error" id="bfDateErr" hidden>Please choose a date from today onwards.</p>
+        </div>
+        <div class="field">
+          <label for="bfTime">Preferred Time</label>
+          <select id="bfTime" name="time" required aria-describedby="bfTimeErr">
+            <option value="">Select a time</option>
+          </select>
+          <p class="field-error" id="bfTimeErr" hidden>Please choose a time.</p>
+        </div>
+      </div>
+
+      <!-- spam trap: hidden from people, bots fill it -->
+      <div class="hp" aria-hidden="true">
+        <label for="bfCompany">Company</label>
+        <input id="bfCompany" name="company" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <button class="btn btn-hazard btn-lg btn-block" id="bfSubmit" type="submit">
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg><span>Send Booking Request</span></button>
+    </form>
+
+    <div class="book-done" id="bookDone" hidden>
+      <span class="done-ico" aria-hidden="true"><svg width="30" height="30"><use href="#i-wa"/></svg></span>
+      <h3 tabindex="-1" id="doneTitle" class="rough"></h3>
+      <p id="doneText"></p>
+      <a class="btn btn-paper" id="bookReopen" href="#" target="_blank" rel="noopener" hidden>WhatsApp didn’t open? Tap here</a>
+    </div>
+  </dialog>
+</body>
+</html>

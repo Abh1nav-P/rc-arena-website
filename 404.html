@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wrong Turn – TORQ</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#100F0D" />
+  <link rel="icon" type="image/svg+xml" href="/assets/mark.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@500;600&family=Permanent+Marker&display=swap" />
+  <link rel="stylesheet" href="/style.css?v=9" />
+  <style>
+    .lost { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 40px 20px; }
+    .lost-inner { display: grid; justify-items: center; gap: 18px; max-width: 560px; }
+    .lost .lost-code { font: 400 clamp(7rem, 34vw, 13rem)/.8 var(--f-head); color: transparent; -webkit-text-stroke: 3px var(--hazard); }
+    .lost h1 { font: 400 clamp(2.4rem, 9vw, 4rem)/.9 var(--f-head); text-transform: uppercase; }
+    .lost p { color: var(--bone-dim); font-size: 1.1rem; }
+    .lost .marker { color: var(--rust); font-size: 1.4rem; transform: rotate(-2deg); }
+    .lost-tape { width: 100%; height: 14px; background: var(--hazard-stripes); background-size: 51px 51px; margin: 6px 0 10px; }
+  </style>
+</head>
+<body>
+  <main class="lost">
+    <div class="lost-inner">
+      <img src="/assets/logo-light.svg" alt="TORQ" width="140" height="54" />
+      <p class="lost-code" aria-hidden="true">404</p>
+      <h1>Wrong turn!</h1>
+      <p class="marker">You drove off the track.</p>
+      <div class="lost-tape" aria-hidden="true"></div>
+      <p>The page you’re looking for doesn’t exist. Head back to the arena and pick a track.</p>
+      <a class="btn btn-hazard btn-lg" href="/">Back to TORQ</a>
+    </div>
+  </main>
+</body>
+</html>
